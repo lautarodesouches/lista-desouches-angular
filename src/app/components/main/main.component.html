@@ -1,0 +1,23 @@
+<main class="min-h-screen p-4 flex flex-col justify-center items-center gap-8">
+    <div>
+        <ul>
+            <ng-container *ngFor="let alumno of listaAlumnos">
+                <li class="text-center text-xl m-2 p-2 border border-slate-600 rounded text-white border-none"
+                    [ngClass]="alumno.nota >= 7 ? 'bg-green-700' : 'bg-red-700'">
+                    Nombre: {{alumno.nombre | titlecase}} - Nota: {{alumno.nota}}
+                </li>
+            </ng-container>
+        </ul>
+    </div>
+    <div>
+        <h2 class="text-2xl">Promedio: {{promedio}}</h2>
+    </div>
+    <div class="p-2" [style.border]="promedio >= 7 ? '1px solid green' : '1px dotted red'">
+        <h3 class="text-xl">
+            El promedio es
+            <span *ngIf="promedio > 7">mayor</span>
+            <span *ngIf="promedio < 7">menor</span>
+            a 7
+        </h3>
+    </div>
+</main>
